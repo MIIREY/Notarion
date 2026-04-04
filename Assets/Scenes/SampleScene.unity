@@ -486,7 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da2e190799d583845afd60cd123c09dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyShooter
-  projectilePrefab: {fileID: 2697017442852554392, guid: 5f8e9614c76ff4446ab63e26db54e4b5, type: 3}
+  projectilePrefab: {fileID: 4120280295357700377, guid: ec75c7f8db93737469ad1101f9b12d51, type: 3}
   shootPoint: {fileID: 329468671}
 --- !u!1 &440875115
 GameObject:
