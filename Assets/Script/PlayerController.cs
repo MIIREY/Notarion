@@ -12,6 +12,11 @@ public class PlayerController : MonoBehaviour
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
 
+    // === COMBAT ===
+    public Transform attackPoint;
+    public float attackRange = 1f;
+    public LayerMask enemyLayer;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -21,6 +26,8 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Jump();
+
+        HandleAttack();
     }
 
     void Move()
@@ -37,5 +44,42 @@ public class PlayerController : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
+    }
+
+    void HandleAttack()
+    {
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            Attack("RED");
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Attack("BLUE");
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Attack("GREEN");
+        }
+    }
+
+    void Attack(string color)
+    {
+        Debug.Log("Attack: " + color);
+
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            enemy.GetComponent<Enemy>()?.TakeDamage(color);
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null) return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
