@@ -9,10 +9,10 @@ public class Projectile : MonoBehaviour
         transform.Translate(Vector2.left * speed * Time.deltaTime);
     }
 
-    public void Reflect()
+    public void Parried()
     {
-        speed *= -1;
-        Debug.Log("Projectile Reflected!");
+        // nanti bisa tambahin efek disini (particle / sound)
+        Destroy(gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -20,6 +20,14 @@ public class Projectile : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player Hit!");
+
+            Health hp = other.GetComponent<Health>();
+
+            if (hp != null)
+            {
+                hp.TakeDamage(10); // bebas atur damage
+            }
+
             Destroy(gameObject);
         }
     }
