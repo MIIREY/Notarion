@@ -57,16 +57,20 @@ PrefabInstance:
       value: blue Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8074045775511134662, guid: ec75c7f8db93737469ad1101f9b12d51, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -733219096263470103, guid: 574bdc29e77b41e49977fb7deda2ad88, type: 3}
+    - target: {fileID: 8074045775511134662, guid: ec75c7f8db93737469ad1101f9b12d51, type: 3}
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8074045775511134662, guid: ec75c7f8db93737469ad1101f9b12d51, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8074045775511134662, guid: ec75c7f8db93737469ad1101f9b12d51, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
