@@ -2,19 +2,28 @@ using UnityEngine;
 
 public class EnemyShooter : MonoBehaviour
 {
+    [Header("Projectile")]
     public GameObject projectilePrefab;
-    public Transform shootPoint;
+    public Transform firePoint;
+
+    [Header("Shoot Settings")]
+    public float shootInterval = 2f;
+
+    private float timer;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        timer += Time.deltaTime;
+
+        if (timer >= shootInterval)
         {
             Shoot();
+            timer = 0f;
         }
     }
 
     void Shoot()
     {
-        Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
+        Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
     }
 }
